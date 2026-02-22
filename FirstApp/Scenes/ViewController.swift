@@ -105,7 +105,7 @@ class ViewController: UIViewController {
         
         button.addAction(
             UIAction { [weak self] _ in
-                self?.showPrevious()
+                self?.showNext()
             },
             for: .touchUpInside
         )
