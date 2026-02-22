@@ -62,6 +62,7 @@ class ViewController: UIViewController {
         var config = UIButton.Configuration.plain()
         config.title = "⬅️ Влево"
         config.baseForegroundColor = .black
+        config.background.cornerRadius = 12
         config.contentInsets = NSDirectionalEdgeInsets(
             top: 8,
             leading: 16,
@@ -74,6 +75,15 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
+        button.clipsToBounds = true
+        
+        button.configurationUpdateHandler = { button in
+            if button.isHighlighted {
+                button.configuration?.background.backgroundColor = UIColor.systemGray4
+            } else {
+                button.configuration?.background.backgroundColor = UIColor.white
+            }
+        }
         
         button.addAction(
             UIAction { [weak self] _ in
@@ -90,6 +100,7 @@ class ViewController: UIViewController {
         var config = UIButton.Configuration.plain()
         config.title = "Вправо ➡️"
         config.baseForegroundColor = .black
+        config.background.cornerRadius = 12
         config.contentInsets = NSDirectionalEdgeInsets(
             top: 8,
             leading: 16,
@@ -102,6 +113,15 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
+        button.clipsToBounds = true
+        
+        button.configurationUpdateHandler = { button in
+            if button.isHighlighted {
+                button.configuration?.background.backgroundColor = UIColor.lightGray
+            } else {
+                button.configuration?.background.backgroundColor = UIColor.white
+            }
+        }
         
         button.addAction(
             UIAction { [weak self] _ in
